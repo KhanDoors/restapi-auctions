@@ -3,4 +3,6 @@ AuctionsTableIAM:
   Action:
     - dynamodb:*
   Resource:
-    - ${self:custom.AuctionsTable.arn}
+    - ${self:custom.AuctionsTable.arn}    
+    - !Join ['/', [ '${self:custom.AuctionsTable.arn}', 'index', 'statusAndEndDate' ]]
+
